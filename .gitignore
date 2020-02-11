@@ -4,35 +4,37 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
-*.rsuser
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
+[Ll]ogicielAdaptatif/*.rsuser
+[Ll]ogicielAdaptatif/*.suo
+[Ll]ogicielAdaptatif/*.user
+[Ll]ogicielAdaptatif/*.userosscache
+[Ll]ogicielAdaptatif/*.sln.docstates
 
 # User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+[Ll]ogicielAdaptatif/*.userprefs
 
 # Mono auto generated files
-mono_crash.*
+[Ll]ogicielAdaptatif/mono_crash.*
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-[Ll]ogs/
+[Ll]ogicielAdaptatif/[Dd]ebug/
+[Ll]ogicielAdaptatif/[Dd]ebugPublic/
+[Ll]ogicielAdaptatif/[Rr]elease/
+[Ll]ogicielAdaptatif/[Rr]eleases/
+[Ll]ogicielAdaptatif/x64/
+[Ll]ogicielAdaptatif/x86/
+[Ll]ogicielAdaptatif/[Aa][Rr][Mm]/
+[Ll]ogicielAdaptatif/[Aa][Rr][Mm]64/
+[Ll]ogicielAdaptatif/bld/
+[Ll]ogicielAdaptatif/[Bb]in/
+[Ll]ogicielAdaptatif/[Oo]bj/
+[Ll]ogicielAdaptatif/[Ll]og/
+[Ll]ogicielAdaptatif/[Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
+[Ll]ogicielAdaptatif/.vs/
 .vs/
+
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -40,195 +42,195 @@ bld/
 Generated\ Files/
 
 # MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
+[Ll]ogicielAdaptatif/[Tt]est[Rr]esult*/
+[Ll]ogicielAdaptatif/[Bb]uild[Ll]og.*
 
 # NUnit
-*.VisualState.xml
-TestResult.xml
-nunit-*.xml
+[Ll]ogicielAdaptatif/*.VisualState.xml
+[Ll]ogicielAdaptatif/TestResult.xml
+[Ll]ogicielAdaptatif/nunit-*.xml
 
 # Build Results of an ATL Project
-[Dd]ebugPS/
-[Rr]eleasePS/
-dlldata.c
+[Ll]ogicielAdaptatif/[Dd]ebugPS/
+[Ll]ogicielAdaptatif/[Rr]eleasePS/
+[Ll]ogicielAdaptatif/dlldata.c
 
 # Benchmark Results
-BenchmarkDotNet.Artifacts/
+[Ll]ogicielAdaptatif/BenchmarkDotNet.Artifacts/
 
 # .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
+[Ll]ogicielAdaptatif/project.lock.json
+[Ll]ogicielAdaptatif/project.fragment.lock.json
+[Ll]ogicielAdaptatif/artifacts/
 
 # StyleCop
-StyleCopReport.xml
+[Ll]ogicielAdaptatif/StyleCopReport.xml
 
 # Files built by Visual Studio
-*_i.c
-*_p.c
-*_h.h
-*.ilk
-*.meta
-*.obj
-*.iobj
-*.pch
-*.pdb
-*.ipdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*_wpftmp.csproj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.svclog
-*.scc
+[Ll]ogicielAdaptatif/*_i.c
+[Ll]ogicielAdaptatif/*_p.c
+[Ll]ogicielAdaptatif/*_h.h
+[Ll]ogicielAdaptatif/*.ilk
+[Ll]ogicielAdaptatif/*.meta
+[Ll]ogicielAdaptatif/*.obj
+[Ll]ogicielAdaptatif/*.iobj
+[Ll]ogicielAdaptatif/*.pch
+[Ll]ogicielAdaptatif/*.pdb
+[Ll]ogicielAdaptatif/*.ipdb
+[Ll]ogicielAdaptatif/*.pgc
+[Ll]ogicielAdaptatif/*.pgd
+[Ll]ogicielAdaptatif/*.rsp
+[Ll]ogicielAdaptatif/*.sbr
+[Ll]ogicielAdaptatif/*.tlb
+[Ll]ogicielAdaptatif/*.tli
+[Ll]ogicielAdaptatif/*.tlh
+[Ll]ogicielAdaptatif/*.tmp
+[Ll]ogicielAdaptatif/*.tmp_proj
+[Ll]ogicielAdaptatif/*_wpftmp.csproj
+[Ll]ogicielAdaptatif/*.log
+[Ll]ogicielAdaptatif/*.vspscc
+[Ll]ogicielAdaptatif/*.vssscc
+[Ll]ogicielAdaptatif/.builds
+[Ll]ogicielAdaptatif/*.pidb
+[Ll]ogicielAdaptatif/*.svclog
+[Ll]ogicielAdaptatif/*.scc
 
 # Chutzpah Test files
-_Chutzpah*
+[Ll]ogicielAdaptatif/_Chutzpah*
 
 # Visual C++ cache files
-ipch/
-*.aps
-*.ncb
-*.opendb
-*.opensdf
-*.sdf
-*.cachefile
-*.VC.db
-*.VC.VC.opendb
+[Ll]ogicielAdaptatif/ipch/
+[Ll]ogicielAdaptatif/*.aps
+[Ll]ogicielAdaptatif/*.ncb
+[Ll]ogicielAdaptatif/*.opendb
+[Ll]ogicielAdaptatif/*.opensdf
+[Ll]ogicielAdaptatif/*.sdf
+[Ll]ogicielAdaptatif/*.cachefile
+[Ll]ogicielAdaptatif/*.VC.db
+[Ll]ogicielAdaptatif/*.VC.VC.opendb
 
 # Visual Studio profiler
-*.psess
-*.vsp
-*.vspx
-*.sap
+[Ll]ogicielAdaptatif/*.psess
+[Ll]ogicielAdaptatif/*.vsp
+[Ll]ogicielAdaptatif/*.vspx
+[Ll]ogicielAdaptatif/*.sap
 
 # Visual Studio Trace Files
-*.e2e
+[Ll]ogicielAdaptatif/*.e2e
 
 # TFS 2012 Local Workspace
-$tf/
+[Ll]ogicielAdaptatif/$tf/
 
 # Guidance Automation Toolkit
-*.gpState
+[Ll]ogicielAdaptatif/*.gpState
 
 # ReSharper is a .NET coding add-in
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
+[Ll]ogicielAdaptatif/_ReSharper*/
+[Ll]ogicielAdaptatif/*.[Rr]e[Ss]harper
+[Ll]ogicielAdaptatif/*.DotSettings.user
 
 # TeamCity is a build add-in
-_TeamCity*
+[Ll]ogicielAdaptatif/_TeamCity*
 
 # DotCover is a Code Coverage Tool
-*.dotCover
+[Ll]ogicielAdaptatif/*.dotCover
 
 # AxoCover is a Code Coverage Tool
-.axoCover/*
-!.axoCover/settings.json
+[Ll]ogicielAdaptatif/.axoCover/*
+[Ll]ogicielAdaptatif/!.axoCover/settings.json
 
 # Visual Studio code coverage results
-*.coverage
-*.coveragexml
+[Ll]ogicielAdaptatif/*.coverage
+[Ll]ogicielAdaptatif/*.coveragexml
 
 # NCrunch
-_NCrunch_*
-.*crunch*.local.xml
-nCrunchTemp_*
+[Ll]ogicielAdaptatif/_NCrunch_*
+[Ll]ogicielAdaptatif/.*crunch*.local.xml
+[Ll]ogicielAdaptatif/nCrunchTemp_*
 
 # MightyMoose
-*.mm.*
-AutoTest.Net/
+[Ll]ogicielAdaptatif/*.mm.*
+[Ll]ogicielAdaptatif/AutoTest.Net/
 
 # Web workbench (sass)
-.sass-cache/
+[Ll]ogicielAdaptatif/.sass-cache/
 
 # Installshield output folder
-[Ee]xpress/
+[Ll]ogicielAdaptatif/[Ee]xpress/
 
 # DocProject is a documentation generator add-in
-DocProject/buildhelp/
-DocProject/Help/*.HxT
-DocProject/Help/*.HxC
-DocProject/Help/*.hhc
-DocProject/Help/*.hhk
-DocProject/Help/*.hhp
-DocProject/Help/Html2
-DocProject/Help/html
+[Ll]ogicielAdaptatif/DocProject/buildhelp/
+[Ll]ogicielAdaptatif/DocProject/Help/*.HxT
+[Ll]ogicielAdaptatif/DocProject/Help/*.HxC
+[Ll]ogicielAdaptatif/DocProject/Help/*.hhc
+[Ll]ogicielAdaptatif/DocProject/Help/*.hhk
+[Ll]ogicielAdaptatif/DocProject/Help/*.hhp
+[Ll]ogicielAdaptatif/DocProject/Help/Html2
+[Ll]ogicielAdaptatif/DocProject/Help/html
 
 # Click-Once directory
-publish/
+[Ll]ogicielAdaptatif/publish/
 
 # Publish Web Output
-*.[Pp]ublish.xml
-*.azurePubxml
+[Ll]ogicielAdaptatif/*.[Pp]ublish.xml
+[Ll]ogicielAdaptatif/*.azurePubxml
 # Note: Comment the next line if you want to checkin your web deploy settings,
 # but database connection strings (with potential passwords) will be unencrypted
-*.pubxml
-*.publishproj
+[Ll]ogicielAdaptatif/*.pubxml
+[Ll]ogicielAdaptatif/*.publishproj
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
 # checkin your Azure Web App publish settings, but sensitive information contained
 # in these scripts will be unencrypted
-PublishScripts/
+[Ll]ogicielAdaptatif/PublishScripts/
 
 # NuGet Packages
-*.nupkg
+[Ll]ogicielAdaptatif/*.nupkg
 # NuGet Symbol Packages
-*.snupkg
+[Ll]ogicielAdaptatif/*.snupkg
 # The packages folder can be ignored because of Package Restore
-**/[Pp]ackages/*
+[Ll]ogicielAdaptatif/**/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
-!**/[Pp]ackages/build/
+[Ll]ogicielAdaptatif/!**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/[Pp]ackages/repositories.config
 # NuGet v3's project.json files produces more ignorable files
-*.nuget.props
-*.nuget.targets
+[Ll]ogicielAdaptatif/*.nuget.props
+[Ll]ogicielAdaptatif/*.nuget.targets
 
 # Microsoft Azure Build Output
-csx/
-*.build.csdef
+[Ll]ogicielAdaptatif/csx/
+[Ll]ogicielAdaptatif/*.build.csdef
 
 # Microsoft Azure Emulator
-ecf/
-rcf/
+[Ll]ogicielAdaptatif/ecf/
+[Ll]ogicielAdaptatif/rcf/
 
 # Windows Store app package directories and files
-AppPackages/
-BundleArtifacts/
-Package.StoreAssociation.xml
-_pkginfo.txt
-*.appx
-*.appxbundle
-*.appxupload
+[Ll]ogicielAdaptatif/AppPackages/
+[Ll]ogicielAdaptatif/BundleArtifacts/
+[Ll]ogicielAdaptatif/Package.StoreAssociation.xml
+[Ll]ogicielAdaptatif/_pkginfo.txt
+[Ll]ogicielAdaptatif/*.appx
+[Ll]ogicielAdaptatif/*.appxbundle
+[Ll]ogicielAdaptatif/*.appxupload
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
-*.[Cc]ache
+[Ll]ogicielAdaptatif/*.[Cc]ache
 # but keep track of directories ending in .cache
-!?*.[Cc]ache/
+[Ll]ogicielAdaptatif/!?*.[Cc]ache/
 
 # Others
-ClientBin/
-~$*
-*~
-*.dbmdl
-*.dbproj.schemaview
-*.jfm
-*.pfx
-*.publishsettings
-orleans.codegen.cs
+[Ll]ogicielAdaptatif/ClientBin/
+[Ll]ogicielAdaptatif/~$*
+[Ll]ogicielAdaptatif/*~
+[Ll]ogicielAdaptatif/*.dbmdl
+[Ll]ogicielAdaptatif/*.dbproj.schemaview
+[Ll]ogicielAdaptatif/*.jfm
+[Ll]ogicielAdaptatif/*.pfx
+[Ll]ogicielAdaptatif/*.publishsettings
+[Ll]ogicielAdaptatif/orleans.codegen.cs
 
 # Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
@@ -239,112 +241,112 @@ orleans.codegen.cs
 #bower_components/
 
 # RIA/Silverlight projects
-Generated_Code/
+[Ll]ogicielAdaptatif/Generated_Code/
 
 # Backup & report files from converting an old project file
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)
-_UpgradeReport_Files/
-Backup*/
-UpgradeLog*.XML
-UpgradeLog*.htm
+[Ll]ogicielAdaptatif/_UpgradeReport_Files/
+[Ll]ogicielAdaptatif/Backup*/
+[Ll]ogicielAdaptatif/UpgradeLog*.XML
+[Ll]ogicielAdaptatif/UpgradeLog*.htm
 ServiceFabricBackup/
-*.rptproj.bak
+[Ll]ogicielAdaptatif/*.rptproj.bak
 
 # SQL Server files
-*.mdf
-*.ldf
-*.ndf
+[Ll]ogicielAdaptatif/*.mdf
+[Ll]ogicielAdaptatif/*.ldf
+[Ll]ogicielAdaptatif/*.ndf
 
 # Business Intelligence projects
-*.rdl.data
-*.bim.layout
-*.bim_*.settings
-*.rptproj.rsuser
-*- [Bb]ackup.rdl
-*- [Bb]ackup ([0-9]).rdl
-*- [Bb]ackup ([0-9][0-9]).rdl
+[Ll]ogicielAdaptatif/*.rdl.data
+[Ll]ogicielAdaptatif/*.bim.layout
+[Ll]ogicielAdaptatif/*.bim_*.settings
+[Ll]ogicielAdaptatif/*.rptproj.rsuser
+[Ll]ogicielAdaptatif/*- [Bb]ackup.rdl
+[Ll]ogicielAdaptatif/*- [Bb]ackup ([0-9]).rdl
+[Ll]ogicielAdaptatif/*- [Bb]ackup ([0-9][0-9]).rdl
 
 # Microsoft Fakes
-FakesAssemblies/
+[Ll]ogicielAdaptatif/FakesAssemblies/
 
 # GhostDoc plugin setting file
-*.GhostDoc.xml
+[Ll]ogicielAdaptatif/*.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
-.ntvs_analysis.dat
-node_modules/
+[Ll]ogicielAdaptatif/.ntvs_analysis.dat
+[Ll]ogicielAdaptatif/node_modules/
 
 # Visual Studio 6 build log
-*.plg
+[Ll]ogicielAdaptatif/*.plg
 
 # Visual Studio 6 workspace options file
-*.opt
+[Ll]ogicielAdaptatif/*.opt
 
 # Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
-*.vbw
+[Ll]ogicielAdaptatif/*.vbw
 
 # Visual Studio LightSwitch build output
-**/*.HTMLClient/GeneratedArtifacts
-**/*.DesktopClient/GeneratedArtifacts
-**/*.DesktopClient/ModelManifest.xml
-**/*.Server/GeneratedArtifacts
-**/*.Server/ModelManifest.xml
-_Pvt_Extensions
+[Ll]ogicielAdaptatif/**/*.HTMLClient/GeneratedArtifacts
+[Ll]ogicielAdaptatif/**/*.DesktopClient/GeneratedArtifacts
+[Ll]ogicielAdaptatif/**/*.DesktopClient/ModelManifest.xml
+[Ll]ogicielAdaptatif/**/*.Server/GeneratedArtifacts
+[Ll]ogicielAdaptatif/**/*.Server/ModelManifest.xml
+[Ll]ogicielAdaptatif/_Pvt_Extensions
 
 # Paket dependency manager
-.paket/paket.exe
-paket-files/
+[Ll]ogicielAdaptatif/.paket/paket.exe
+[Ll]ogicielAdaptatif/paket-files/
 
 # FAKE - F# Make
-.fake/
+[Ll]ogicielAdaptatif/.fake/
 
 # CodeRush personal settings
-.cr/personal
+[Ll]ogicielAdaptatif/.cr/personal
 
 # Python Tools for Visual Studio (PTVS)
-__pycache__/
-*.pyc
+[Ll]ogicielAdaptatif/__pycache__/
+[Ll]ogicielAdaptatif/*.pyc
 
 # Cake - Uncomment if you are using it
 # tools/**
 # !tools/packages.config
 
 # Tabs Studio
-*.tss
+[Ll]ogicielAdaptatif/*.tss
 
 # Telerik's JustMock configuration file
-*.jmconfig
+[Ll]ogicielAdaptatif/*.jmconfig
 
 # BizTalk build output
-*.btp.cs
-*.btm.cs
-*.odx.cs
-*.xsd.cs
+[Ll]ogicielAdaptatif/*.btp.cs
+[Ll]ogicielAdaptatif/*.btm.cs
+[Ll]ogicielAdaptatif/*.odx.cs
+[Ll]ogicielAdaptatif/*.xsd.cs
 
 # OpenCover UI analysis results
-OpenCover/
+[Ll]ogicielAdaptatif/OpenCover/
 
 # Azure Stream Analytics local run output
-ASALocalRun/
+[Ll]ogicielAdaptatif/ASALocalRun/
 
 # MSBuild Binary and Structured Log
-*.binlog
+[Ll]ogicielAdaptatif/*.binlog
 
 # NVidia Nsight GPU debugger configuration file
-*.nvuser
+[Ll]ogicielAdaptatif/*.nvuser
 
 # MFractors (Xamarin productivity tool) working folder
-.mfractor/
+[Ll]ogicielAdaptatif/.mfractor/
 
 # Local History for Visual Studio
-.localhistory/
+[Ll]ogicielAdaptatif/.localhistory/
 
 # BeatPulse healthcheck temp database
-healthchecksdb
+[Ll]ogicielAdaptatif/healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
-MigrationBackup/
+[Ll]ogicielAdaptatif/MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
-.ionide/
+[Ll]ogicielAdaptatif/.ionide/
