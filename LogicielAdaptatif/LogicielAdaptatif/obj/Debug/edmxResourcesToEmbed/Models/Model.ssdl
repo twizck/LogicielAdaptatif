@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YNOVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="id_bill" />
+    </Key>
+    <Property Name="id_bill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="bill_date" Type="date" Nullable="false" />
+    <Property Name="bill_paid" Type="bit" Nullable="false" />
+    <Property Name="bill_date_paid" Type="date" />
+    <Property Name="bill_amount" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Bill_Product">
+    <Key>
+      <PropertyRef Name="id_bill" />
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_bill" Type="int" Nullable="false" />
+    <Property Name="id_product" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_stock" Type="int" Nullable="false" />
+    <Property Name="product_picture" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_price" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_role" Type="bit" Nullable="false" />
+    <Property Name="user_last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_first_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_date_creat" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_18">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_33">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="Bill_Product" Type="Self.Bill_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id_bill" />
+      </Principal>
+      <Dependent Role="Bill_Product">
+        <PropertyRef Name="id_bill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_43">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Bill_Product" Type="Self.Bill_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="Bill_Product">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="YNOVModelStoreContainer">
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bill_Product" EntityType="Self.Bill_Product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Bill_Product].[id_bill] AS [id_bill], 
+    [Bill_Product].[id_product] AS [id_product]
+    FROM [dbo].[Bill_Product] AS [Bill_Product]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_18" Association="Self.FK_18">
+      <End Role="User" EntitySet="User" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_33" Association="Self.FK_33">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="Bill_Product" EntitySet="Bill_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_43" Association="Self.FK_43">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Bill_Product" EntitySet="Bill_Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
