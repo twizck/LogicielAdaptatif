@@ -350,3 +350,5 @@ ServiceFabricBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 [Ll]ogicielAdaptatif/.ionide/
+/LogicielAdaptatif/LogicielAdaptatif/bin
+/LogicielAdaptatif/LogicielAdaptatif/obj/Debug/TempPE
