@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="YNOVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="YNOVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bill">
           <Key>
             <PropertyRef Name="id_bill" />
@@ -35,6 +35,16 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
           <Property Name="product_stock" Type="int" Nullable="false" />
           <Property Name="product_picture" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="product_price" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -87,6 +97,7 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
         <EntityContainer Name="YNOVModelStoreContainer">
           <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bill_Product" EntityType="Self.Bill_Product" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -107,8 +118,7 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
             <End Role="Bill_Product" EntitySet="Bill_Product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YNOVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -122,7 +132,6 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
           <Property Name="bill_paid" Type="Boolean" Nullable="false" />
           <Property Name="bill_date_paid" Type="DateTime" Precision="0" />
           <Property Name="bill_amount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_18" FromRole="Bill" ToRole="User" />
           <NavigationProperty Name="Products" Relationship="Self.Bill_Product" FromRole="Bill" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
@@ -134,7 +143,6 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
           <Property Name="product_stock" Type="Int32" Nullable="false" />
           <Property Name="product_picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="product_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Bills" Relationship="Self.Bill_Product" FromRole="Product" ToRole="Bill" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -177,7 +185,18 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
             <End Role="Bill" EntitySet="Bills" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="YNOVModel.sysdiagram" />
         </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -228,6 +247,17 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
               <ScalarProperty Name="id_product" ColumnName="id_product" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YNOVModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -12,12 +12,12 @@ namespace LogicielAdaptatif.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class sysdiagram
     {
-        public int id_product { get; set; }
-        public string product_name { get; set; }
-        public int product_stock { get; set; }
-        public string product_picture { get; set; }
-        public string product_price { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

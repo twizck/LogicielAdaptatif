@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using LogicielAdaptatif.Models;
+using LogicielAdaptatif.ViewModels;
 
 namespace LogicielAdaptatif.Controllers
 {
@@ -36,6 +37,31 @@ namespace LogicielAdaptatif.Controllers
             return Ok(user);
         }
 
+
+        // GET: api/login/Users
+        [Route("api/user/{login}/{mdp}")]
+        public IHttpActionResult Get(string login, string mdp)
+        {
+            var errors = new List<string>();
+            // Comparer les logins et mdp
+            var res = db.Users.Where(u => u.user_mail == login && u.user_password == mdp).Select(e => new UserVM { IdUser = e.id_user, PrenomUser = e.user_first_name, NomUser=e.user_last_name });
+            try
+            {
+                // Verifier si login et password sont bons
+                if (res != null)
+                {
+                    return Ok(res);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutUser(int id, User user)

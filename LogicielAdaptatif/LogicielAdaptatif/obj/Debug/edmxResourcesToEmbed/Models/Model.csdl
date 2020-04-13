@@ -10,7 +10,6 @@
     <Property Name="bill_paid" Type="Boolean" Nullable="false" />
     <Property Name="bill_date_paid" Type="DateTime" Precision="0" />
     <Property Name="bill_amount" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK_18" FromRole="Bill" ToRole="User" />
     <NavigationProperty Name="Products" Relationship="Self.Bill_Product" FromRole="Bill" ToRole="Product" />
   </EntityType>
   <EntityType Name="Product">
@@ -22,7 +21,6 @@
     <Property Name="product_stock" Type="Int32" Nullable="false" />
     <Property Name="product_picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="product_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Bills" Relationship="Self.Bill_Product" FromRole="Product" ToRole="Bill" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -65,5 +63,16 @@
       <End Role="Bill" EntitySet="Bills" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="YNOVModel.sysdiagram" />
   </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>
