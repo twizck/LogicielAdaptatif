@@ -1,6 +1,5 @@
 # LogicielAdaptatif
-Projet spé-logiciel YNOV 2019/2020
-Membres:
+Projet spé-logiciel YNOV 2019/2020 :
 - Alexandre Davault (https://github.com/AlexDvt)
 - Hugo Nicolas-Humbert (https://github.com/twizou)
 
