@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="YNOVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="YNOVEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bills" EntityType="YNOVModel.Bill" />
+    <EntitySet Name="Bill_Product" EntityType="YNOVModel.Bill_Product" />
+    <EntitySet Name="Products" EntityType="YNOVModel.Product" />
+    <EntitySet Name="Users" EntityType="YNOVModel.User" />
+    <AssociationSet Name="FK_18" Association="YNOVModel.FK_18">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_33" Association="YNOVModel.FK_33">
+      <End Role="Bill" EntitySet="Bills" />
+      <End Role="Bill_Product" EntitySet="Bill_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_43" Association="YNOVModel.FK_43">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Bill_Product" EntitySet="Bill_Product" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Bill">
     <Key>
       <PropertyRef Name="id_bill" />
@@ -10,17 +28,27 @@
     <Property Name="bill_paid" Type="Boolean" Nullable="false" />
     <Property Name="bill_date_paid" Type="DateTime" Precision="0" />
     <Property Name="bill_amount" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Products" Relationship="Self.Bill_Product" FromRole="Bill" ToRole="Product" />
+    <NavigationProperty Name="Bill_Product" Relationship="YNOVModel.FK_33" FromRole="Bill" ToRole="Bill_Product" />
+  </EntityType>
+  <EntityType Name="Bill_Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_bill" Type="Int32" Nullable="false" />
+    <Property Name="id_product" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="YNOVModel.FK_43" FromRole="Bill_Product" ToRole="Product" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="id_product" />
     </Key>
     <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="product_stock" Type="Int32" Nullable="false" />
-    <Property Name="product_picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="product_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_picture" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -28,16 +56,16 @@
     </Key>
     <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="user_role" Type="Boolean" Nullable="false" />
-    <Property Name="user_last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="user_first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="user_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="user_date_creat" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Bills" Relationship="Self.FK_18" FromRole="User" ToRole="Bill" />
+    <NavigationProperty Name="Bills" Relationship="YNOVModel.FK_18" FromRole="User" ToRole="Bill" />
   </EntityType>
   <Association Name="FK_18">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <End Type="YNOVModel.User" Role="User" Multiplicity="1" />
+    <End Type="YNOVModel.Bill" Role="Bill" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="id_user" />
@@ -47,32 +75,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Bill_Product">
-    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+  <Association Name="FK_33">
+    <End Type="YNOVModel.Bill" Role="Bill" Multiplicity="1" />
+    <End Type="YNOVModel.Bill_Product" Role="Bill_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id_bill" />
+      </Principal>
+      <Dependent Role="Bill_Product">
+        <PropertyRef Name="id_bill" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="YNOVEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Bills" EntityType="Self.Bill" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <AssociationSet Name="FK_18" Association="Self.FK_18">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Bill" EntitySet="Bills" />
-    </AssociationSet>
-    <AssociationSet Name="Bill_Product" Association="Self.Bill_Product">
-      <End Role="Bill" EntitySet="Bills" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <EntitySet Name="sysdiagrams" EntityType="YNOVModel.sysdiagram" />
-  </EntityContainer>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
+  <Association Name="FK_43">
+    <End Type="YNOVModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="YNOVModel.Bill_Product" Role="Bill_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="Bill_Product">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

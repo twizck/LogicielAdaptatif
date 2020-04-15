@@ -11,15 +11,14 @@
     <Property Name="bill_date_paid" Type="date" />
     <Property Name="bill_amount" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Bill_Product">
     <Key>
-      <PropertyRef Name="id_bill" />
-      <PropertyRef Name="id_product" />
+      <PropertyRef Name="id" />
     </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_bill" Type="int" Nullable="false" />
     <Property Name="id_product" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -30,16 +29,6 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
     <Property Name="product_stock" Type="int" Nullable="false" />
     <Property Name="product_picture" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="product_price" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -91,15 +80,9 @@ warning 6002: The table/view 'YNOV.dbo.Bill_Product' does not have a primary key
   </Association>
   <EntityContainer Name="YNOVModelStoreContainer">
     <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bill_Product" EntityType="Self.Bill_Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Bill_Product" EntityType="Self.Bill_Product" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Bill_Product].[id_bill] AS [id_bill], 
-    [Bill_Product].[id_product] AS [id_product]
-    FROM [dbo].[Bill_Product] AS [Bill_Product]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_18" Association="Self.FK_18">
       <End Role="User" EntitySet="User" />
       <End Role="Bill" EntitySet="Bill" />

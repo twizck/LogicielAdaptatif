@@ -17,7 +17,7 @@ namespace LogicielAdaptatif.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Bill()
         {
-            this.Products = new HashSet<Product>();
+            this.Bill_Product = new HashSet<Bill_Product>();
         }
     
         public int id_bill { get; set; }
@@ -28,6 +28,6 @@ namespace LogicielAdaptatif.Models
         public int bill_amount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Bill_Product> Bill_Product { get; set; }
     }
 }

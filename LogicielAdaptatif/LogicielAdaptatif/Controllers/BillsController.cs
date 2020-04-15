@@ -27,7 +27,7 @@ namespace LogicielAdaptatif.Controllers
         [ResponseType(typeof(Bill))]
         public async Task<IHttpActionResult> GetBill(int id)
         {
-            Bill bill = await db.Bills.FindAsync(id);
+            Bill bill = await db.Bills.Where(b => b.id_user == id).FirstOrDefaultAsync();
             if (bill == null)
             {
                 return NotFound();

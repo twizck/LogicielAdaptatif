@@ -5,12 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="66dd5b13d0d84f0193e5b290d4b64b09" Name="Diagram1">
-        <EntityTypeShape EntityType="YNOVModel.Bill" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="YNOVModel.Product" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="YNOVModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="YNOVModel.FK_18" ManuallyRouted="false" />
-        <AssociationConnector Association="YNOVModel.Bill_Product" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="YNOVModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="YNOVModel.Bill" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="YNOVModel.Bill_Product" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="YNOVModel.Product" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="YNOVModel.User" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="YNOVModel.FK_18" />
+        <AssociationConnector Association="YNOVModel.FK_33" />
+        <AssociationConnector Association="YNOVModel.FK_43" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

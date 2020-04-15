@@ -4,55 +4,46 @@
     <EntitySetMapping Name="Bills">
       <EntityTypeMapping TypeName="YNOVModel.Bill">
         <MappingFragment StoreEntitySet="Bill">
-          <ScalarProperty Name="id_bill" ColumnName="id_bill" />
-          <ScalarProperty Name="id_user" ColumnName="id_user" />
-          <ScalarProperty Name="bill_date" ColumnName="bill_date" />
-          <ScalarProperty Name="bill_paid" ColumnName="bill_paid" />
-          <ScalarProperty Name="bill_date_paid" ColumnName="bill_date_paid" />
           <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+          <ScalarProperty Name="bill_date_paid" ColumnName="bill_date_paid" />
+          <ScalarProperty Name="bill_paid" ColumnName="bill_paid" />
+          <ScalarProperty Name="bill_date" ColumnName="bill_date" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_bill" ColumnName="id_bill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bill_Product">
+      <EntityTypeMapping TypeName="YNOVModel.Bill_Product">
+        <MappingFragment StoreEntitySet="Bill_Product">
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_bill" ColumnName="id_bill" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="YNOVModel.Product">
         <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="id_product" ColumnName="id_product" />
-          <ScalarProperty Name="product_name" ColumnName="product_name" />
-          <ScalarProperty Name="product_stock" ColumnName="product_stock" />
-          <ScalarProperty Name="product_picture" ColumnName="product_picture" />
           <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="product_picture" ColumnName="product_picture" />
+          <ScalarProperty Name="product_stock" ColumnName="product_stock" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="YNOVModel.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="id_user" ColumnName="id_user" />
-          <ScalarProperty Name="user_role" ColumnName="user_role" />
-          <ScalarProperty Name="user_last_name" ColumnName="user_last_name" />
-          <ScalarProperty Name="user_first_name" ColumnName="user_first_name" />
-          <ScalarProperty Name="user_mail" ColumnName="user_mail" />
-          <ScalarProperty Name="user_password" ColumnName="user_password" />
           <ScalarProperty Name="user_date_creat" ColumnName="user_date_creat" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="Bill_Product" TypeName="YNOVModel.Bill_Product" StoreEntitySet="Bill_Product">
-      <EndProperty Name="Bill">
-        <ScalarProperty Name="id_bill" ColumnName="id_bill" />
-      </EndProperty>
-      <EndProperty Name="Product">
-        <ScalarProperty Name="id_product" ColumnName="id_product" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="YNOVModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_mail" ColumnName="user_mail" />
+          <ScalarProperty Name="user_first_name" ColumnName="user_first_name" />
+          <ScalarProperty Name="user_last_name" ColumnName="user_last_name" />
+          <ScalarProperty Name="user_role" ColumnName="user_role" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
