@@ -23,83 +23,133 @@ namespace LogicielAdaptatif.Controllers
             return db.Bills;
         }
 
+        //avoir un bill spé
         // GET: api/Bills/5
         [ResponseType(typeof(Bill))]
         public async Task<IHttpActionResult> GetBill(int id)
         {
-            Bill bill =  await db.Bills.Where(b => b.id_user == id).FirstOrDefaultAsync();
-            if (bill == null)
+            try
             {
-                return NotFound();
-            }
+                //renvoie le premier bill trouvé avec le même id
+                Bill bill = await db.Bills.FirstOrDefaultAsync(b => b.id_bill == id);
+                if (bill == null)
+                {
+                    return NotFound();
+                }
 
-            return Ok(bill);
+                return Ok(bill);
+            }
+            catch (Exception e)
+            {
+
+                return InternalServerError(e);
+            }
         }
 
+        //modification de bill
         // PUT: api/Bills/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutBill(int id, Bill bill)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != bill.id_bill)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(bill).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BillExists(id))
+                if (!ModelState.IsValid)
                 {
-                    return NotFound();
+                    return BadRequest(ModelState);
                 }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return StatusCode(HttpStatusCode.NoContent);
+                if (id != bill.id_bill)
+                {
+                    return BadRequest();
+                }
+
+                db.Entry(bill).State = EntityState.Modified;
+
+                try
+                {
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BillExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            catch (Exception e)
+            {
+
+                return InternalServerError(e);
+            }
         }
 
         // POST: api/Bills
         [ResponseType(typeof(Bill))]
         public async Task<IHttpActionResult> PostBill(Bill bill)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                db.Bills.Add(bill);
+                await db.SaveChangesAsync();
+
+                return CreatedAtRoute("DefaultApi", new { id = bill.id_bill }, bill);
             }
+            catch (Exception e)
+            {
 
-            db.Bills.Add(bill);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = bill.id_bill }, bill);
+                return InternalServerError(e);
+            }
         }
 
         // DELETE: api/Bills/5
         [ResponseType(typeof(Bill))]
         public async Task<IHttpActionResult> DeleteBill(int id)
         {
-            Bill bill = await db.Bills.FindAsync(id);
-            if (bill == null)
+            try
             {
-                return NotFound();
+                Bill bill = await db.Bills.FindAsync(id);
+                if (bill == null)
+                {
+                    return NotFound();
+                }
+
+                db.Bills.Remove(bill);
+                await db.SaveChangesAsync();
+
+                return Ok(bill);
             }
+            catch (Exception e)
+            {
 
-            db.Bills.Remove(bill);
-            await db.SaveChangesAsync();
+                return InternalServerError(e);
+            }
+        }
 
-            return Ok(bill);
+        [Route("api/MyBills/{id}")]
+        public async Task<IHttpActionResult> GetMyBills(int id)
+        {
+            try
+            {
+                List<Bill> bill = db.Bills.Where(b => b.id_user == id).ToList();
+                return Ok(bill);
+            }
+            catch (Exception e)
+            {
+
+                return InternalServerError(e);
+            }
         }
 
         protected override void Dispose(bool disposing)

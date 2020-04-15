@@ -44,7 +44,7 @@ namespace LogicielAdaptatif.Controllers
         {
             var errors = new List<string>();
             // Comparer les logins et mdp
-            var res = db.Users.Where(u => u.user_mail == login && u.user_password == mdp).Select(e => new UserVM { IdUser = e.id_user, PrenomUser = e.user_first_name, NomUser=e.user_last_name });
+            var res = db.Users.Where(u => u.user_mail == login && u.user_password == mdp).Select(e => new UserVM { IdUser = e.id_user, PrenomUser = e.user_first_name, NomUser = e.user_last_name });
             try
             {
                 // Verifier si login et password sont bons
@@ -62,56 +62,38 @@ namespace LogicielAdaptatif.Controllers
                 return InternalServerError(e);
             }
         }
-        // PUT: api/Users/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutUser(int id, User user)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            if (id != user.id_user)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Users
+        //creation user
+        [Route("api/user/create")]
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> PostUser(User user)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                //erreurs spé en cas de problèmes
+                var errors = new List<string>();
+                if (user.user_password == null) errors.Add("Aucun mot de passe renseigné");
+                if (user.user_mail == null) errors.Add("Aucun login/email renseigné");
+                if (user.user_first_name == null) errors.Add("Aucun prénom renseigné");
+                if (user.user_last_name == null) errors.Add("Aucun nom renseigné");
+                if (errors.Count() < 1)
+                {
+                    db.Users.Add(user);
+                    db.SaveChangesAsync();
+                    return Ok(user);
+                }
+                else
+                {
+                    return Ok(errors);
+                }
             }
-
-            db.Users.Add(user);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = user.id_user }, user);
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
         }
 
+        //pour supprimer user
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> DeleteUser(int id)

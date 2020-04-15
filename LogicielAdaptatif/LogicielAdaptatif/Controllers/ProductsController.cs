@@ -17,89 +17,126 @@ namespace LogicielAdaptatif.Controllers
     {
         private readonly YNOVEntities db = new YNOVEntities();
 
+        //recupère tous les produits
         // GET: api/Products
         public IQueryable<Product> GetProducts()
         {
             return db.Products;
         }
 
+        //recupère produit spé
         // GET: api/Products/5
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            try
             {
-                return NotFound();
-            }
+                //cherche dans la base un produit avec le même id
+                Product product = await db.Products.FindAsync(id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
 
-            return Ok(product);
+                return Ok(product);
+            }
+            catch (Exception e)
+            {
+
+                return InternalServerError(e);
+            }
         }
 
+        //Modification d'un produit
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutProduct(int id, Product product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != product.id_product)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(product).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
+                if (!ModelState.IsValid)
                 {
-                    return NotFound();
+                    return BadRequest(ModelState);
                 }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return StatusCode(HttpStatusCode.NoContent);
+                if (id != product.id_product)
+                {
+                    return BadRequest();
+                }
+
+                db.Entry(product).State = EntityState.Modified;
+
+                try
+                {
+                    //enregistrement dans la base
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProductExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            catch (Exception e)
+            {
+
+                return InternalServerError(e);
+            }
         }
 
         // POST: api/Products
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> PostProduct(Product product)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                db.Products.Add(product);
+                await db.SaveChangesAsync();
+
+                return CreatedAtRoute("DefaultApi", new { id = product.id_product }, product);
             }
+            catch (Exception e)
+            {
 
-            db.Products.Add(product);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = product.id_product }, product);
+                return InternalServerError(e);
+            }
         }
 
         // DELETE: api/Products/5
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> DeleteProduct(int id)
         {
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            try
             {
-                return NotFound();
+                Product product = await db.Products.FindAsync(id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+
+                db.Products.Remove(product);
+                await db.SaveChangesAsync();
+
+                return Ok(product);
             }
+            catch (Exception e)
+            {
 
-            db.Products.Remove(product);
-            await db.SaveChangesAsync();
-
-            return Ok(product);
+                return InternalServerError(e);
+            }
         }
 
         protected override void Dispose(bool disposing)
