@@ -1,8 +1,8 @@
 # LogicielAdaptatif
 Projet spé-logiciel YNOV 2019/2020
 Membres:
-Alexandre Davault (https://github.com/AlexDvt)
-Hugo Nicolas-Humbert (https://github.com/twizou)
+- Alexandre Davault (https://github.com/AlexDvt)
+- Hugo Nicolas-Humbert (https://github.com/twizou)
 
 ## Prérequis
 **Visual Studio 2019**
