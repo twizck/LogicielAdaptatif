@@ -138,7 +138,7 @@ namespace LogicielAdaptatif.Controllers
         }
 
         [Route("api/MyBills/{id}")]
-        public async Task<IHttpActionResult> GetMyBills(int id)
+        public IHttpActionResult GetMyBills(int id)
         {
             try
             {

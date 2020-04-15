@@ -66,7 +66,7 @@ namespace LogicielAdaptatif.Controllers
         //creation user
         [Route("api/user/create")]
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> PostUser(User user)
+        public IHttpActionResult PostUser(User user)
         {
             try
             {
