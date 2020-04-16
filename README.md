@@ -4,8 +4,8 @@ Projet spé-logiciel YNOV 2019/2020 :
 - Hugo Nicolas-Humbert (https://github.com/twizou)
 
 ## Prérequis
-**Visual Studio 2019**
-**Microsoft SQL Server**
+- **Visual Studio 2019 avec le .NET Framework 4.7.2**
+- **Microsoft SQL Server**
 
 ## Utilisation
 *Les liens suivants sont des images*
