@@ -2,6 +2,7 @@
 Projet spé-logiciel YNOV 2019/2020 :
 - Alexandre Davault (https://github.com/AlexDvt)
 - Hugo Nicolas-Humbert (https://github.com/twizou)
+- [Trello](https://trello.com/b/o98z3JF0/projet-sp%C3%A9-logiciel)
 
 ## Prérequis
 - **Visual Studio 2019 avec le .NET Framework 4.7.2**
