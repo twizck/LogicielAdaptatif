@@ -1,7 +1,7 @@
 # LogicielAdaptatif
 Projet spé-logiciel YNOV 2019/2020 :
-- Alexandre Davault (https://github.com/AlexDvt)
-- Hugo Nicolas-Humbert (https://github.com/twizou)
+- Alexandre Davault @AlexDvt
+- Hugo Nicolas-Humbert @twizou
 - [Trello](https://trello.com/b/o98z3JF0/projet-sp%C3%A9-logiciel)
 
 ## Prérequis
