@@ -82,7 +82,8 @@
                                             + "Quantité : " + bills.Bill_Product[0].quantity + "<br>"
                                             + "Prix total : " + bills.bill_amount + "€" + "<br>"
                                             + "Date de création : " + bills.bill_date.slice(0,10) + "<br>"
-                                            + "Facture déjà payée : " + (bills.bill_paid ? "Oui" : "Non") + "<br><br><br>"
+                                            + "Facture déjà payée : " + (bills.bill_paid ? "Oui" : "Non") + "<br>"
+                                            + "<img src='" + bills.Bill_Product[0].Product.product_picture + "'>" + "<br><br><br>"
                                             //+ "<br>" + bills.bill_date_paid;
 
                                         //document.getElementById('bills').innerHTML = bills.Bill_Product[0].Product.product_name;
