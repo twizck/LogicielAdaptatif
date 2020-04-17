@@ -44,7 +44,7 @@ namespace LogicielAdaptatif.Controllers
         {
             var errors = new List<string>();
             // Comparer les logins et mdp
-            var res = db.Users.Where(u => u.user_mail == login && u.user_password == mdp).Select(e => new UserVM { IdUser = e.id_user, PrenomUser = e.user_first_name, NomUser = e.user_last_name });
+            var res = db.Users.Where(u => u.user_mail == login && u.user_password == mdp).Select(e => new UserVM { IdUser = e.id_user, PrenomUser = e.user_first_name, NomUser = e.user_last_name, Role = e.user_role }) ;
             try
             {
                 // Verifier si login et password sont bons

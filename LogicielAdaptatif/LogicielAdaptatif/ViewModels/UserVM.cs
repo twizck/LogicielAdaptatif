@@ -10,6 +10,7 @@ namespace LogicielAdaptatif.ViewModels
         public int IdUser { get; set; }
         public string PrenomUser { get; set; }
         public string NomUser { get; set; }
+        public bool Role { get; set; }
 
     }
 }
