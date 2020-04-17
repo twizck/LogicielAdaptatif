@@ -1,16 +1,17 @@
 # LogicielAdaptatif
 Projet spé-logiciel YNOV 2019/2020 :
-- Alexandre Davault (https://github.com/AlexDvt)
-- Hugo Nicolas-Humbert (https://github.com/twizou)
+- Alexandre Davault [@AlexDvt](https://github.com/AlexDvt)
+- Hugo Nicolas-Humbert [@twizou](https://github.com/twizou)
+- [Trello](https://trello.com/b/o98z3JF0/projet-sp%C3%A9-logiciel)
 
 ## Prérequis
-**Visual Studio 2019**
-**Microsoft SQL Server**
+- **Visual Studio 2019 avec le .NET Framework 4.7.2**
+- **Microsoft SQL Server**
 
 ## Utilisation
 *Les liens suivants sont des images*
 
-- Importer la base de donnée sous Microsoft SQL Server (fichier *ynov.bak*)
+- Importer la base de donnée sous Microsoft SQL Server (fichier *db.bak*)
 
 - Ouvrir la solution sous **visual studio**
 
