@@ -10,7 +10,7 @@ Projet spé-logiciel YNOV 2019/2020 :
 ## Utilisation
 *Les liens suivants sont des images*
 
-- Importer la base de donnée sous Microsoft SQL Server (fichier *ynov.bak*)
+- Importer la base de donnée sous Microsoft SQL Server (fichier *db.bak*)
 
 - Ouvrir la solution sous **visual studio**
 
